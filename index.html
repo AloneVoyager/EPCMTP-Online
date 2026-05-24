@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蛋仔派对地图文本处理器</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 标题区域 -->
+        <header class="header">
+            <div class="header-content">
+                <i class="fas fa-gamepad header-icon"></i>
+                <div class="header-text">
+                    <h1>蛋仔派对地图文本处理器</h1>
+                    <p class="subtitle">快速解析游戏内复制的地图分享文本</p>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- 输入卡片 -->
+            <div class="card input-card">
+                <div class="card-header">
+                    <i class="fas fa-paste"></i>
+                    <h2>粘贴分享文本</h2>
+                </div>
+                <div class="card-body">
+                    <textarea 
+                        id="inputText" 
+                        class="fluent-input" 
+                        placeholder="复制打开【蛋仔派对】，游玩地图《地图名》，地图码1234-5678。"
+                        rows="4"
+                    ></textarea>
+                    <button id="processBtn" class="fluent-button primary">
+                        <i class="fas fa-magic"></i>
+                        处理文本
+                    </button>
+                </div>
+            </div>
+
+            <!-- 结果卡片 -->
+            <div class="card result-card" id="resultCard" style="display: none;">
+                <div class="card-header">
+                    <i class="fas fa-file-alt"></i>
+                    <h2>处理结果</h2>
+                </div>
+                <div class="card-body">
+                    <div class="output-container">
+                        <pre id="outputContent" class="output-content"></pre>
+                    </div>
+                    <div class="action-buttons">
+                        <button id="copyBtn" class="fluent-button secondary">
+                            <i class="far fa-copy"></i>
+                            复制内容
+                        </button>
+                        <button id="clearBtn" class="fluent-button subtle">
+                            <i class="fas fa-redo"></i>
+                            清空重来
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 错误卡片 -->
+            <div class="card error-card" id="errorCard" style="display: none;">
+                <div class="card-header error">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <h2>处理出错</h2>
+                </div>
+                <div class="card-body">
+                    <p id="errorMessage" class="error-message"></p>
+                    <button id="dismissError" class="fluent-button subtle">
+                        知道了
+                    </button>
+                </div>
+            </div>
+
+            <!-- 示例卡片 -->
+            <div class="card example-card">
+                <div class="card-header">
+                    <i class="fas fa-lightbulb"></i>
+                    <h2>使用示例</h2>
+                </div>
+                <div class="card-body">
+                    <p class="example-text">输入格式：</p>
+                    <code class="example-code">复制打开【蛋仔派对】，游玩地图《梦幻游乐园》，地图码5821-3497。</code>
+                    <p class="example-text">输出结果：</p>
+                    <div class="example-output">
+                        <pre>【蛋仔派对】地图《梦幻游乐园》试玩
+
+相关游戏：蛋仔派对
+地图名：梦幻游乐园
+地图码：5821-3497
+(EggyPartyCopyMapTextProcessor Generate)</pre>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- 页脚 -->
+        <footer class="footer">
+            <p>EggyPartyCopyMapTextProcessor Web Edition</p>
+            <p>2026 AloneVoyager</p>
+            <p class="footer-note">基于 MIT 许可证开源（<a href="https://github.com/AloneVoyager/EPCMTP-Online" target="_blank">仓库见此</a>）</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
