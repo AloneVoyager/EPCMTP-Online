@@ -87,6 +87,25 @@ function extractMapCode(text) {
     throw new Error('未找到地图码');
 }
 
+// 生成扩展文案
+function getExtraInformation(mapName = '') {
+    const msgList = [
+        '复制内容打开蛋仔派对，就能体验同款地图啦~',
+        '超好玩的蛋仔地图，复制一下马上就能玩哦~',
+        '快来试试这张可爱地图，复制内容进入游戏就可以啦~',
+        '软软萌萌的蛋仔地图等你来玩，复制内容开启冒险吧~',
+        '喜欢这张地图吗？复制内容打开蛋仔就能游玩咯~',
+        '蛋仔专属趣味地图，一键复制，快乐上线~',
+        '奔赴蛋仔乐园啦，复制内容即可体验同款地图~',
+        '圆滚滚的蛋仔世界，这张地图超有趣，快来玩呀~',
+        '把地图带回家~复制内容，在蛋仔派对里尽情玩耍吧~',
+        '可爱地图已就位，复制内容，和蛋仔一起闯关吧~'
+    ];
+    // 随机返回一条文案
+    const randomIndex = Math.floor(Math.random() * msgList.length);
+    return msgList[randomIndex];
+}
+
 // 生成输出内容
 function generateOutput(mapName, mapCode) {
     return `【蛋仔派对】地图《${mapName}》试玩
@@ -94,6 +113,7 @@ function generateOutput(mapName, mapCode) {
 相关游戏：蛋仔派对
 地图名：${mapName}
 地图码：${mapCode}
+${getExtraInformation()}
 (EggyPartyCopyMapTextProcessor Generate)`;
 }
 
